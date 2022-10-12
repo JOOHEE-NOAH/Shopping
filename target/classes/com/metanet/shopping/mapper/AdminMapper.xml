@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.metanet.shopping.mapper.AdminMapper">
+ 	<select id="adminLogin" resultType="com.metanet.shopping.model.AdminDto">
+		SELECT * FROM ADMIN WHERE ADMINID=#{adminId} AND ADMINPW=#{adminPw}
+	</select>
+	<insert id="itemRegister">
+		<selectKey resultType="int" keyProperty="itemNo" order="AFTER">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+		INSERT INTO  ITEM(ITEMNAME,ITEMCODE,ITEMAMOUNT,ITEMCOST,ITEMPRICE,ITEMDISCOUNT,ITEMCONTENTS,ITEMSTATUS,ITEMREGDATE) VALUES(#{itemName},#{itemCode},#{itemAmount},#{itemCost},#{itemPrice},#{itemDiscount},#{itemContents},1,now())
+	</insert>
+	<select id="itemCodeList" resultType="com.metanet.shopping.model.ItemCodeDto">
+		SELECT * FROM ITEMCODE
+	</select>
+	<insert id="imgRegister">
+		insert into shopping.itemImg values(#{itemNo},#{fileName},#{uploadPath},#{uuid})
+	</insert>
+</mapper>

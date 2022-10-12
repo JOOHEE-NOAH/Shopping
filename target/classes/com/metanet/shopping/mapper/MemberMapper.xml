@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.metanet.shopping.mapper.MemberMapper">
+	<insert id="memberJoin">
+		INSERT INTO MEMBER VALUES(#{memberId},#{memberPw},#{memberName},#{memberEmail},#{address1},#{address2},#{address3},#{phoneNumber},1,2000,now())
+	</insert>
+	<select id="idCheck" resultType="int">
+		SELECT COUNT(*) FROM MEMBER WHERE MEMBERID=#{memberId}
+	</select>
+ 	<select id="login" resultType="com.metanet.shopping.model.MemberDto">
+		SELECT * FROM MEMBER WHERE MEMBERID=#{memberId} AND MEMBERPW=#{memberPw}
+	</select>
+</mapper>
