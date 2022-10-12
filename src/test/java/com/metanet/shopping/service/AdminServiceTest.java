@@ -23,13 +23,13 @@ public class AdminServiceTest {
 	public void itemRegisterTest() {
 		ItemDto item = new ItemDto();
 		// 상품 정보
-		item.setItemName("test4");
-		item.setItemCode(4);
-		item.setItemAmount(10);
+		item.setItemName("inputtest");
+		item.setItemCode(1);
+		item.setItemAmount(5);
 		item.setItemCost(1000);
-		item.setItemPrice(2000);
-		item.setItemDiscount(0);
-		item.setItemContents("test4");
+		item.setItemPrice(5000);
+		item.setItemDiscount(10);
+		item.setItemContents("inputtest");
 
 		// 이미지 정보
 		List<ItemImgDto> imgList = new ArrayList<ItemImgDto>(); 
@@ -39,11 +39,11 @@ public class AdminServiceTest {
 		
 		image1.setFileName("test Image 1");
 		image1.setUploadPath("test image 1");
-		image1.setUuid("test1111");
+		image1.setUuid("inputtest1111");
 		
 		image2.setFileName("test Image 2");
 		image2.setUploadPath("test image 2");
-		image2.setUuid("test2222");
+		image2.setUuid("inputtest2222");
 		
 		imgList.add(image1);
 		imgList.add(image2);
