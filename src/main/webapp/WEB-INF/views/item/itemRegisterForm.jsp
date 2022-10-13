@@ -195,16 +195,18 @@
 			for (let i = 0; i < fileList.length; i++) {
 				formData.append("uploadFile", fileList[i]);
 			}
-
+			let temp = 0;
 			//파일 정보 서버로 전송
 			$.ajax({
 				url : '/admin/uploadAjaxAction',
 				processData : false,
 				contentType : false,
+				asyce : false;
 				data : formData,
 				type : 'POST',
 				dataType : 'json',
 				success : function(result) {
+					temp = result;
 					console.log(result);
 					showUploadImg(result)/* 업로드한 사진파일 바로 보여주는 function */
 				},
@@ -245,45 +247,48 @@
 			let uploadResult = $("#uploadResult");
 			
 			//업로드한 사진 중 하나만 대표 미리보기
-			let obj = uploadResultArray[0];
+//			let obj = uploadResultArray[0];
 			
 			/* 추가될 태그 코드 저장할 변수 선언 및 초기화 */
-			let str=""; 
+//			let str=""; 
 			
 			/* 썸네일로 저장된 파일의 경로 */
-			let fileCallPath = encodeURIComponent(obj.uploadPath + "/s_" + obj.uuid + "_" + obj.fileName);
+//			let fileCallPath = encodeURIComponent(obj.uploadPath + "/s_" + obj.uuid + "_" + obj.fileName);
 						  	/* UTF-8로 인코딩 */	
 			
 			/* 선택한 사진 파일 나오게 하는 태그 코드 문자열들 저장 */
-				str += "<div id='result_card'>";
-				str += "<img src='/display?fileName=" + fileCallPath +"'>";
-				str += "<div class='imgDeleteBtn' data-file='" + fileCallPath + "'>x</div>";
-				str += "<input type='hidden' name='imageList[0].fileName' value='"+ obj.fileName +"'>";
-				str += "<input type='hidden' name='imageList[0].uuid' value='"+ obj.uuid +"'>";
-				str += "<input type='hidden' name='imageList[0].uploadPath' value='"+ obj.uploadPath +"'>";	
-				str += "</div>";
-				
-			uploadResult.append(str); /* id=uploadResult 태그에 위의 str값 추가 */				  	
-						  	
-			//업로드한 모든 사진 미리보기
-//			for (let i = 0; i < uploadResultArray.length; i++) {
-//				let obj = uploadResultArray[i];
-//				
-//				/* 추가될 태그 코드 저장할 변수 선언 및 초기화 */
-//				let str=""; 
-//				
-//				/* 썸네일로 저장된 파일의 경로 */
-//				let fileCallPath = encodeURIComponent(obj.uploadPath + "/s_" + obj.uuid + "_" + obj.fileName);
-//							  	/* UTF-8로 인코딩 */				
-//			
-//				/* 선택한 사진 파일 나오게 하는 태그 코드 문자열들 저장 */
 //				str += "<div id='result_card'>";
 //				str += "<img src='/display?fileName=" + fileCallPath +"'>";
 //				str += "<div class='imgDeleteBtn' data-file='" + fileCallPath + "'>x</div>";
+//				str += "<input type='hidden' name='imageList[0].fileName' value='"+ obj.fileName +"'>";
+//				str += "<input type='hidden' name='imageList[0].uuid' value='"+ obj.uuid +"'>";
+//				str += "<input type='hidden' name='imageList[0].uploadPath' value='"+ obj.uploadPath +"'>";	
 //				str += "</div>";
-//				
-//				uploadResult.append(str); /* id=uploadResult 태그에 위의 str값 추가 */	
-//			}
+				
+//			uploadResult.append(str); /* id=uploadResult 태그에 위의 str값 추가 */				  	
+						  	
+			//업로드한 모든 사진 미리보기
+			for (let i = 0; i < uploadResultArray.length; i++) {
+				let obj = uploadResultArray[i];
+				
+				/* 추가될 태그 코드 저장할 변수 선언 및 초기화 */
+				let str=""; 
+				
+				/* 썸네일로 저장된 파일의 경로 */
+				let fileCallPath = encodeURIComponent(obj.uploadPath + "/s_" + obj.uuid + "_" + obj.fileName);
+							  	/* UTF-8로 인코딩 */				
+			
+				/* 선택한 사진 파일 나오게 하는 태그 코드 문자열들 저장 */
+				str += "<div id='result_card'>";
+				str += "<img src='/display?fileName=" + fileCallPath +"'>";
+				str += "<div class='imgDeleteBtn' data-file='" + fileCallPath + "'>x</div>";
+				str += "<input type='hidden' name='imageList["+i+"].fileName' value='"+ obj.fileName +"'>";
+				str += "<input type='hidden' name='imageList["+i+"].uuid' value='"+ obj.uuid +"'>";
+				str += "<input type='hidden' name='imageList["+i+"].uploadPath' value='"+ obj.uploadPath +"'>";	
+				str += "</div>";
+				
+				uploadResult.append(str); /* id=uploadResult 태그에 위의 str값 추가 */	
+			}
 		}
 		
 		/* 파일 삭제 버튼 동작 */
@@ -319,6 +324,8 @@
 				}
 			});
 		}
+		
+		
 	</script>
 </body>
 </html>

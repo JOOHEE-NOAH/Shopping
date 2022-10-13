@@ -1,6 +1,10 @@
 package com.metanet.shopping.service;
 
 import java.util.List;
+import java.util.Map;
+
+import javax.activation.CommandMap;
+import javax.servlet.http.HttpServletRequest;
 
 import com.metanet.shopping.model.AdminDto;
 import com.metanet.shopping.model.ItemCodeDto;
@@ -13,5 +17,7 @@ public interface AdminService {
 	boolean itemRegister(ItemDto item);
 
 	List<ItemCodeDto> itemCodeList();
+	
+	//void insertItem(Map<String, Object> map, HttpServletRequest request) throws Exception;
 	
 }

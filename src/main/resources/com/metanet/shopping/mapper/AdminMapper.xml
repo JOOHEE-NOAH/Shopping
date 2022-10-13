@@ -16,6 +16,6 @@
 		SELECT * FROM ITEMCODE
 	</select>
 	<insert id="imgRegister">
-		insert into shopping.itemImg values(#{itemNo},#{fileName},#{uploadPath},#{uuid})
+		insert into itemImg values(#{itemNo},#{fileName},#{uuid})
 	</insert>
 </mapper>

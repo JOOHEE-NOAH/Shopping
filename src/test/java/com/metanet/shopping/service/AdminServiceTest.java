@@ -38,11 +38,9 @@ public class AdminServiceTest {
 		ItemImgDto image2 = new ItemImgDto();
 		
 		image1.setFileName("test Image 1");
-		image1.setUploadPath("test image 1");
 		image1.setUuid("inputtest1111");
 		
 		image2.setFileName("test Image 2");
-		image2.setUploadPath("test image 2");
 		image2.setUuid("inputtest2222");
 		
 		imgList.add(image1);
