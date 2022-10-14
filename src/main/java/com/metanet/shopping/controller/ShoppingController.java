@@ -56,4 +56,10 @@ public class ShoppingController {
 		return result;
 
 	}
+	@RequestMapping(value = "/itemDetail", method = { RequestMethod.GET, RequestMethod.POST })
+	public String itemDetail(HttpServletRequest request) {
+		logger.info("제품상세페이지 시작");
+		return "/item/itemDetail";
+	}
+	
 }
