@@ -11,249 +11,79 @@
 <meta name="author" content="" />
 <title>메타독 메인페이지</title>
 <%@ include file="gnb_top.jsp"%>
-<%@ include file="header.jsp"%>
 <%@ include file="gnb_menu.jsp"%>
+<%@ include file="header.jsp"%>
 </head>
 <body>
 
-	<h1>로그인 되었나 확인해볼까요?-->${member.memberId}</h1>
-	<!-- Section-->
+		<!-- Section-->
 	<section class="py-5">
 		<div class="container px-4 px-lg-5 mt-5">
+
 			<div
 				class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-				<div class="col mb-5">
-					<div class="card h-100">
-						<!-- Product image-->
-						<img class="card-img-top"
-							src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-						<!-- Product details-->
-						<div class="card-body p-4">
-							<div class="text-center">
-								<!-- Product name-->
-								<h5 class="fw-bolder">Fancy Product</h5>
-								<!-- Product price-->
-								$40.00 - $80.00
-							</div>
-						</div>
-						<!-- Product actions-->
-						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-							<div class="text-center">
-								<a class="btn btn-outline-dark mt-auto" href="#">View
-									options</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col mb-5">
-					<div class="card h-100">
-						<!-- Sale badge-->
-						<div class="badge bg-dark text-white position-absolute"
-							style="top: 0.5rem; right: 0.5rem">Sale</div>
-						<!-- Product image-->
-						<img class="card-img-top"
-							src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-						<!-- Product details-->
-						<div class="card-body p-4">
-							<div class="text-center">
-								<!-- Product name-->
-								<h5 class="fw-bolder">Special Item</h5>
-								<!-- Product reviews-->
-								<div
-									class="d-flex justify-content-center small text-warning mb-2">
-									<div class="bi-star-fill"></div>
-									<div class="bi-star-fill"></div>
-									<div class="bi-star-fill"></div>
-									<div class="bi-star-fill"></div>
-									<div class="bi-star-fill"></div>
+
+
+				<c:forEach var="itemList" items="${itemList }">
+
+
+					<div class="col mb-5">
+						<div class="card h-100">
+							<!-- Product image-->
+							<img class="card-img-top"
+							src="http://localhost:8183/shoppingImgs/${itemList.imageList[0].uuid}" alt="itemImg" />
+							<!-- Product details-->
+							<div class="card-body p-4">
+								<div class="text-center">
+									<!-- Product name-->
+									<h5 class="fw-bolder">${itemList.itemName }</h5>
+									<!-- Product price-->
+									<span class="text-muted text-decoration-line-through">${itemList.itemPrice }</span>
+									<c:if test="${itemList.itemDiscount != 0 }">
+									할인율 ${itemList.itemDiscount }
+									</c:if>
+									<c:if test="${itemList.itemAmount < 5 }">
+									품절임박!!
+									</c:if>
+									
+									
 								</div>
-								<!-- Product price-->
-								<span class="text-muted text-decoration-line-through">$20.00</span>
-								$18.00
 							</div>
-						</div>
-						<!-- Product actions-->
-						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-							<div class="text-center">
-								<a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col mb-5">
-					<div class="card h-100">
-						<!-- Sale badge-->
-						<div class="badge bg-dark text-white position-absolute"
-							style="top: 0.5rem; right: 0.5rem">Sale</div>
-						<!-- Product image-->
-						<img class="card-img-top"
-							src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-						<!-- Product details-->
-						<div class="card-body p-4">
-							<div class="text-center">
-								<!-- Product name-->
-								<h5 class="fw-bolder">Sale Item</h5>
-								<!-- Product price-->
-								<span class="text-muted text-decoration-line-through">$50.00</span>
-								$25.00
-							</div>
-						</div>
-						<!-- Product actions-->
-						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-							<div class="text-center">
-								<a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col mb-5">
-					<div class="card h-100">
-						<!-- Product image-->
-						<img class="card-img-top"
-							src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-						<!-- Product details-->
-						<div class="card-body p-4">
-							<div class="text-center">
-								<!-- Product name-->
-								<h5 class="fw-bolder">Popular Item</h5>
-								<!-- Product reviews-->
-								<div
-									class="d-flex justify-content-center small text-warning mb-2">
-									<div class="bi-star-fill"></div>
-									<div class="bi-star-fill"></div>
-									<div class="bi-star-fill"></div>
-									<div class="bi-star-fill"></div>
-									<div class="bi-star-fill"></div>
+							<!-- Product actions-->
+							<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+								<div class="text-center">
+									<a class="btn btn-outline-dark mt-auto" href="/itemDetail?itemNo=${itemList.itemNo }">제품상세</a>
 								</div>
-								<!-- Product price-->
-								$40.00
-							</div>
-						</div>
-						<!-- Product actions-->
-						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-							<div class="text-center">
-								<a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a>
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class="col mb-5">
-					<div class="card h-100">
-						<!-- Sale badge-->
-						<div class="badge bg-dark text-white position-absolute"
-							style="top: 0.5rem; right: 0.5rem">Sale</div>
-						<!-- Product image-->
-						<img class="card-img-top"
-							src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-						<!-- Product details-->
-						<div class="card-body p-4">
-							<div class="text-center">
-								<!-- Product name-->
-								<h5 class="fw-bolder">Sale Item</h5>
-								<!-- Product price-->
-								<span class="text-muted text-decoration-line-through">$50.00</span>
-								$25.00
-							</div>
-						</div>
-						<!-- Product actions-->
-						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-							<div class="text-center">
-								<a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col mb-5">
-					<div class="card h-100">
-						<!-- Product image-->
-						<img class="card-img-top"
-							src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-						<!-- Product details-->
-						<div class="card-body p-4">
-							<div class="text-center">
-								<!-- Product name-->
-								<h5 class="fw-bolder">Fancy Product</h5>
-								<!-- Product price-->
-								$120.00 - $280.00
-							</div>
-						</div>
-						<!-- Product actions-->
-						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-							<div class="text-center">
-								<a class="btn btn-outline-dark mt-auto" href="#">View
-									options</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col mb-5">
-					<div class="card h-100">
-						<!-- Sale badge-->
-						<div class="badge bg-dark text-white position-absolute"
-							style="top: 0.5rem; right: 0.5rem">Sale</div>
-						<!-- Product image-->
-						<img class="card-img-top"
-							src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-						<!-- Product details-->
-						<div class="card-body p-4">
-							<div class="text-center">
-								<!-- Product name-->
-								<h5 class="fw-bolder">Special Item</h5>
-								<!-- Product reviews-->
-								<div
-									class="d-flex justify-content-center small text-warning mb-2">
-									<div class="bi-star-fill"></div>
-									<div class="bi-star-fill"></div>
-									<div class="bi-star-fill"></div>
-									<div class="bi-star-fill"></div>
-									<div class="bi-star-fill"></div>
-								</div>
-								<!-- Product price-->
-								<span class="text-muted text-decoration-line-through">$20.00</span>
-								$18.00
-							</div>
-						</div>
-						<!-- Product actions-->
-						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-							<div class="text-center">
-								<a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col mb-5">
-					<div class="card h-100">
-						<!-- Product image-->
-						<img class="card-img-top"
-							src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-						<!-- Product details-->
-						<div class="card-body p-4">
-							<div class="text-center">
-								<!-- Product name-->
-								<h5 class="fw-bolder">Popular Item</h5>
-								<!-- Product reviews-->
-								<div
-									class="d-flex justify-content-center small text-warning mb-2">
-									<div class="bi-star-fill"></div>
-									<div class="bi-star-fill"></div>
-									<div class="bi-star-fill"></div>
-									<div class="bi-star-fill"></div>
-									<div class="bi-star-fill"></div>
-								</div>
-								<!-- Product price-->
-								$40.00
-							</div>
-						</div>
-						<!-- Product actions-->
-						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-							<div class="text-center">
-								<a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a>
-							</div>
-						</div>
-					</div>
-				</div>
+					
+					
+				</c:forEach>
+
 			</div>
 		</div>
+		         <!-- pagination -->
+				<nav aria-label="Page navigation example">
+					<ul class="pagination justify-content-center">
+						<c:if test="${pg.startPage > pg.pageBlock }">
+							<li class="page-item"><a class="page-link" href="market?currentPage=${pg.startPage-pg.pageBlock}"
+								aria-label="Previous" id="page_btn"> <span
+									aria-hidden="true">&laquo;</span>
+							</a></li>
+						</c:if>
+						<c:forEach var="i" begin="${pg.startPage}" end="${pg.endPage}">
+							<li class="page-item"><a class="page-link" href="market?currentPage=${i}"
+								id="page_btn">${i}</a></li>
+						</c:forEach>
+						<c:if test="${pg.endPage < pg.totalPage }">
+							<li class="page-item"><a class="page-link" href="market?currentPage=${pg.startPage+pg.pageBlock}"
+								aria-label="Next" id="page_btn"> <span aria-hidden="true">&raquo;</span>
+							</a></li>
+						</c:if>
+					</ul>
+				</nav>
+		<!-- pagination end-->
 	</section>
 	<!-- Footer-->
 	<%@ include file="footer.jsp"%>

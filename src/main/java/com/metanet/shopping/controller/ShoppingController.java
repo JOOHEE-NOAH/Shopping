@@ -37,8 +37,11 @@ public class ShoppingController {
 	private ItemService itemService;
 
 	@RequestMapping(value = "/main", method = { RequestMethod.GET, RequestMethod.POST })
-	public void mainPageGet(HttpServletRequest request) {
+	public void mainPageGet(HttpServletRequest request,Model model) {
 		logger.info("메인페이지 시작");
+		List<ItemDto> itemList = itemService.itemList("all"); 		
+		
+		model.addAttribute("itemList",itemList);
 	}
 
 	/*
