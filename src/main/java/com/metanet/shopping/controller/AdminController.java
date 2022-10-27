@@ -122,7 +122,7 @@ public class AdminController {
 		/* 사진 업로드하기*/		
 		// 사진저장할 서버의 물리적경로.
 		//C:\java programming\Sources\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\Shopping\resources\images
-		String uploadPath = request.getSession().getServletContext().getRealPath("/resources/images/");
+		String uploadPath = "C:\\upload\\shopping";
 		System.out.println("사진 저장할 경로?");
 		System.out.println(uploadPath);
 		List<MultipartFile> fileList = mtfRequest.getFiles("file");

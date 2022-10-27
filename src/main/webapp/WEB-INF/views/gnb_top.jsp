@@ -20,17 +20,13 @@
 <script type="text/javascript"
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!-- Core theme CSS (includes Bootstrap)-->
-<link href="resources/css/styles.css" rel="stylesheet" />
+<link rel="stylesheet" href="<c:url value="/resources/css/styles.css"/>"/>
 <!-- jQuery library -->
 <script src="https://code.jquery.com/jquery-3.4.1.js"
 	integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
 	crossorigin="anonymous"></script>
 </head>
 <!-- Popper Js -->
-<script
-	src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
-	integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-	crossorigin="anonymous"></script>
 <!-- Latest compiled JavaScript -->
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
@@ -100,8 +96,8 @@
 							data-bs-toggle="dropdown" aria-expanded="false">마이페이지</button>
 						<ul class="dropdown-menu">
 							<li><a class="dropdown-item" href="#">주문목록</a></li>
+							<li><a class="dropdown-item" href="/cart/memberCartList/${member.memberId }">장바구니</a></li>
 							<li><a class="dropdown-item" href="#">찜한상품</a></li>
-							<li><a class="dropdown-item" href="#">최근본상품</a></li>
 							<li><hr class="dropdown-divider"></li>
 							<li><a class="dropdown-item" href="#">회원정보변경</a></li>
 							<li><a class="dropdown-item" href="#">1:1문의</a></li>
@@ -206,11 +202,13 @@
 		</div>
 	</nav>
 	
+	
 	<!-- Bootstrap core JS-->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 	<!-- Core theme JS-->
-	<script src="js/scripts.js"></script>
+	
+	<script src="/resources/js/scripts.js"></script>
 	<script>
 		/*로그인 모달창 열기*/
 		function openLoginModal() {

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Cheese Market</title>
+<title>메타독</title>
 </head>
 <body>
 <c:choose>

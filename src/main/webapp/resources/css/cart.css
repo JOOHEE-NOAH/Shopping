@@ -1,0 +1,70 @@
+@charset "UTF-8";
+
+.itemCountDiv {
+	padding: 5px 15px;
+	display: inline-block;
+	position: relative;
+	text-align: center;
+	background: #f5f5f5;
+	margin-bottom: 5px;
+}
+
+.itemCountDiv .minus_btn {
+	width: 15px;
+	background: #f5f5f5;
+}
+
+.itemCountDiv .plus_btn {
+	width: 15px;
+	background: #f5f5f5;
+}
+
+.minus_btn {
+	width: 35px;
+	font-size: 16px;
+	color: #6f6f6f;
+	cursor: pointer;
+	display: inline-block;
+	background: #f5f5f5;
+}
+
+.plus_btn {
+	width: 35px;
+	font-size: 16px;
+	color: #6f6f6f;
+	cursor: pointer;
+	display: inline-block;
+	background: #f5f5f5;
+}
+
+.itemCount {
+	width: 35px;
+	font-size: 16px;
+	color: #6f6f6f;
+	cursor: pointer;
+	display: inline-block;
+	background: #f5f5f5;
+	border: none;
+	text-align: center;
+	
+}
+.quantity_modify_btn{
+	cursor: pointer;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+
+   -webkit-appearance: "Always Show Up/Down Arrows";
+
+}
+.delete_btn{
+	padding: 0px 10px;
+	background-color: #f5f5f5;
+	height: 20px;
+}
+a:hover, a:focus {
+    text-decoration: none;
+    outline: none;
+    background-color: black;
+    color: #ffffff;
+}

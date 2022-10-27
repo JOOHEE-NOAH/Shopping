@@ -42,6 +42,7 @@
 </head>
 <body>
 	<form action="/admin/itemRegister">
+	<h1>세션값?->${admin.adminName}</h1>
 		<div>
 			<label for="itemName">상품명</label> <input type="text"
 				class="form-control" id="itemName" name="itemName"
