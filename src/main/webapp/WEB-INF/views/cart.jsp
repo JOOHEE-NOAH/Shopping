@@ -125,11 +125,10 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 
 												<div class="quantity">
 													<div class="itemCount">
-														<span class="minus_btn">-</span> <input
+														 <input
 															class="itemCountNum" type="number" name="itemCount"
 															min="1" max="${cartList.itemAmount }" autocomplete="on"
-															value="${ cartList.itemCount}"> <span
-															class="plus_btn">+</span>
+															value="${ cartList.itemCount}">
 													</div>
 													<button type="submit" class="quantity_modify_btn">변경</button>
 												</div>

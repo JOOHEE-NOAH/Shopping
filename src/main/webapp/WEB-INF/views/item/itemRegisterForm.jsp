@@ -6,6 +6,10 @@
 <head>
 <meta charset="UTF-8">
 <title>상품등록</title>
+
+<!-- Core theme CSS (includes Bootstrap)-->
+<%@ include file="../gnb_top.jsp"%>
+<%@ include file="../gnb_menu.jsp"%>
 <script type="text/javascript"
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <style type="text/css">
@@ -113,6 +117,9 @@
 		<button type="submit">상품등록</button>
 		<button type="button" onclick="history.go(-1)">취소</button>
 	</form>
+	
+	<!-- Footer-->
+	<%@ include file="../footer.jsp"%>
 	<script type="text/javascript">
 		/* 판매가 유효성 검사 */
 		$(document).ready(

@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>메타독</title>
+
 </head>
 <body>
 <c:choose>
